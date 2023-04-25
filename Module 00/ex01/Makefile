@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/14 16:24:46 by xmatute-          #+#    #+#              #
-#    Updated: 2023/04/20 13:04:42 by xmatute-         ###   ########.fr        #
+#    Created: 2023/04/23 13:40:51 by xmatute-          #+#    #+#              #
+#    Updated: 2023/04/25 18:20:11 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,14 @@ SRC :=	agenda.cpp	\
 
 OBJ := $(SRC:%.cpp=%.o)
 
+CLASSES := Contact PhoneBook
+
+CLASSES_SRC := $(CLASSES:%=%.cpp)
+
+CLASSES_OBJ := $(CLASSES:%=%.o)
+
+CLASSES_HEADER := $(CLASSES:%=%.hpp)
+
 CXX		:=	c++
 
 CPPFLAGS:=	-Wall -Wextra -Werror -std=c++98 -pedantic
@@ -48,20 +56,25 @@ MAGENTA = \033[0;35m
 
 all : $(NAME)
 
-$(NAME): $(OBJ) ./PhoneBook/PhoneBook.a
-	$(CXX) $(CPPFLAGS) $(OBJ) ./PhoneBook/PhoneBook.a  ./PhoneBook/Contact/Contact.a -o $(NAME)
+$(NAME): $(OBJ)
+	@echo "compilando..."
+	$(CXX) $(CPPFLAGS) $(OBJ) $(CLASSES_OBJ) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled...$(WHITE)"
 	@echo "$(MAGENTA)$$ASCIIART$(WHITE)"
 
-./PhoneBook/PhoneBook.a:
-	$(MAKE) -C PhoneBook
-
-%.o: %.cpp $(HEADER)
+$(OBJ):%.o: %.cpp $(HEADER) $(CLASSES_OBJ)
+	@echo "compilando $<..."
 	$(CXX) $(CPPFLAGS) -c $< -o $@
+	@echo "$@ compilado!"
 
+
+$(CLASSES_OBJ): %.o: %.cpp $(CLASSES_HEADER)
+	@echo "compilando $<..."
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	@echo "$@ compilado!"
+	
 clean : 
-	$(RM) $(OBJ)
-	$(MAKE) fclean -C PhoneBook
+	$(RM) $(OBJ) $(CLASSES_OBJ)
 	@echo "$(RED)clean done...$(WHITE)"
 
 fclean : clean
