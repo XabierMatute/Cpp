@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/23 13:40:51 by xmatute-          #+#    #+#              #
-#    Updated: 2023/04/25 19:05:07 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/04/25 19:05:46 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ NAME := agenda
 SRC :=	agenda.cpp	\
 
 OBJ := $(SRC:%.cpp=%.o)
+
+HEADER := $(NAME:%=%.hpp)
 
 CLASSES := Contact PhoneBook
 
