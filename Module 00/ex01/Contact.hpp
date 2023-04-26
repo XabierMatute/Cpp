@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:19:08 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/04/25 17:02:21 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:35:04 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Contact
 		std::string	getNickname();
 
 		Contact		userfill();
-		void		display();
-		bool		empty();
+		void		display() const;
+		bool		empty() const;
 };
 
 #endif

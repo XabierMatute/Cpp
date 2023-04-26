@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:19:44 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/04/25 17:06:33 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:36:40 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ Contact	Contact::userfill()
 	return(*this);
 }
 
-bool	Contact::empty(){return (first_name.empty());}
+bool	Contact::empty() const {return (first_name.empty());}
 
 /* -------------------------------------------------------------------------- */
 
@@ -64,7 +64,7 @@ bool	Contact::empty(){return (first_name.empty());}
 /* DISPLAY------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
-void	Contact::display()
+void	Contact::display() const
 {
 	std::cout << first_name << '\n';
 	std::cout << last_name << '\n';
