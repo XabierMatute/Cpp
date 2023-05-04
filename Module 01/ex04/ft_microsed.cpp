@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:02:43 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/04 19:45:20 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:08:58 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,27 @@
 #include <string>
 #include <iostream>
 
-int	
+int	ft_replace(std::ifstream &file, std::ofstream &newFile, std::string &s1, std::string &s2)
+{
+	char	*buff = new char[s1.size() + 1];
+
+	while (file.read(buff, s1.size()))
+	{
+		buff[s1.size()] = '\0';
+		if (s1 == buff)
+			newFile << s2;
+		else
+		{
+			newFile << buff[0];
+			file.seekg(- s1.size() + file.tellg() + 1);
+		}
+	}
+	delete[](buff);
+	return 0;
+}
 
 int	microsed(std::string filename, std::string s1, std::string s2)
 {
-	std::cout << s1;
-
 	if (s1.size() == 0)
 	{
 		std::cerr << "❌Error: no voy a intentar sustituir la nada\n";
@@ -38,21 +53,7 @@ int	microsed(std::string filename, std::string s1, std::string s2)
 		file.close();
 		return 1;
 	}
-	
-	char	*buff = new char[s1.size() + 1];
-
-	while (file.read(buff, s1.size()))
-	{
-		buff[s1.size()] = '\0';
-		if (s1 == buff)
-			newFile << s2;
-		else
-		{
-			newFile << buff[0];
-			file.seekg(- s1.size() + file.tellg() + 1);
-		}
-	}
-	delete[](buff);
+	ft_replace(file, newFile, s1, s2);
 	file.close();
 	newFile.close();
 	return 0;
@@ -60,8 +61,6 @@ int	microsed(std::string filename, std::string s1, std::string s2)
 
 int main(int argc, char const *argv[])
 {
-	printf("%s", argv[2]);
-	
 	if (argc != 4)
 		std::cerr << "❌Error: Espero tres argumentos: Un nombre de archivo y dos strings, s1 y s2\n";
 	else

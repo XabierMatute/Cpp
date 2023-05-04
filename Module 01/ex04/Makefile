@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 16:24:46 by xmatute-          #+#    #+#              #
-#    Updated: 2023/05/04 15:13:06 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/05/04 20:10:33 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ commit:
 	git status
 
 test: all
-	./$(NAME)
+	./$(NAME) $(SRC) Error Horror
 	
 
 .PHONY : all clean fclean re sani flagless normi commit test
