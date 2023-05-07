@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:46:57 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/04/27 11:36:35 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:04:58 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,33 @@
 
 #include <iostream>
 
-void	test0()
-{
-	std::cout << "\nTEST 0\n";
-	Zombie	nameless;
-	Zombie	zero("Zero");
-}
+// void	test0()
+// {
+// 	std::cout << "\nTEST 0\n";
+// 	Zombie	nameless;
+// 	Zombie	zero("Zero");
+// }
 
-void	test1()
-{
-	std::cout << "\nTEST 1\n";
-	Zombie	nameless;
-	Zombie	zero("Asier");
+// void	test1()
+// {
+// 	std::cout << "\nTEST 1\n";
+// 	Zombie	nameless;
+// 	Zombie	zero("Asier");
 
-	nameless.announce();
-	zero.announce();
-}
+// 	nameless.announce();
+// 	zero.announce();
+// }
 
 
 void	test2()
 {
 	std::cout << "\nTEST 2\n";
 	Zombie	*zero = Zombie::newZombie("ChowChow");
+	Zombie	*ale = Zombie::newZombie("Alejandro");
 
 	zero->announce();
 	delete(zero);
+	delete(ale);
 }
 
 void	test2c()
@@ -62,8 +64,8 @@ void	test3()
 
 int main(void)
 {
-	test0();
-	test1();
+	// test0();
+	// test1();
 	test2();
 	// test2c();
 	test3();
