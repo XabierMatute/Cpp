@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:35:22 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/02 16:34:08 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:42:33 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	HumanA
 		Weapon &_Weapon;
 	
 	public:
-		HumanA(std::string name, Weapon &Weapon);
+		HumanA(const std::string &name, Weapon &Weapon);
 		void	attack() const;
 };
 #endif
