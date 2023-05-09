@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/05/09 18:46:17 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/05/09 19:02:27 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ flagless:
 
 commit:
 	git add $(SRC) $(CLASSES_SRC) $(CLASSES_HEADER) $(HEADER) ./Makefile
-	git commit -m "commit general"
+	git commit -m "commit general de $(NAME)"
 	git push
 	git status
 
