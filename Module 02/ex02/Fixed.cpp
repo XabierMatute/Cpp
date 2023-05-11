@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:37:35 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/11 10:17:16 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:29:05 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ static int ipow(int a, int n)
 
 Fixed::Fixed() 
 {
-	std::cout << BLUE << "🔧Default constructor called" << RESET << std::endl;
+	// std::cout << BLUE << "🔧Default constructor called" << RESET << std::endl;
 	value = 0;
 }
 
 Fixed::~Fixed() 
 {
-	std::cout << RED << "💣Destructor called" << RESET << std::endl;
+	// std::cout << RED << "💣Destructor called" << RESET << std::endl;
 }
 
 Fixed::Fixed(const Fixed& to_copy) 
@@ -65,7 +65,7 @@ Fixed::Fixed(const Fixed& to_copy)
 
 Fixed::Fixed(const int& to_asign) 
 {
-	std::cout << BLUE << "🔢Int constructor called" << RESET << std::endl;
+	// std::cout << BLUE << "🔢Int constructor called" << RESET << std::endl;
 	value = to_asign * pow(2, bit_num);
 }
 
@@ -108,7 +108,12 @@ int Fixed::toInt( void ) const
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
-	return (os << (fixed.toFloat()));
+	if (!(std::cout.flags() & std::ios_base::hex))
+		return (os <<(fixed.toFloat()));
+	os << std::hex << fixed.toInt();
+	os << '.';
+	os << std::hex << fixed.getRawBits() % ipow(2, FIXED_BIT_NUM);
+	return (os);
 }
 
 bool Fixed::operator>(const Fixed& other) const

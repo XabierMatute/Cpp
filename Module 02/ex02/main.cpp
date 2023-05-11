@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:23:16 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/11 10:16:29 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:31:56 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,78 @@ void	test3()
 	Fixed ten(10);
 	std::cout << "42 * 10 is " << ft * ten << std::endl;
 	std::cout << "42 / 10 is " << ft / ten << std::endl;
+	std::cout << "42 / 21 is " << ft / Fixed(21) << std::endl;
+	std::cout << "42 / 84 is " << ft / Fixed(84) << std::endl;
 	std::cout << "42 * b is " << ft * b << std::endl;
+	std::cout << "1--" << --Fixed(1) << std::endl;
+}
+
+void	test4()
+{
+	std::cout << "\nTest 4" << std::endl;
+
+	int i = 257;
+	Fixed n(256);
+
+	while (i--)
+	{
+		std::cout << (int)i << "/256= " << Fixed(i) / n << '\n';
+	}
+}
+
+void	test5()
+{
+	std::cout << "\nTest 5" << std::endl;
+
+	int i = 257;
+	Fixed n(256);
+
+	while (i /= 2)
+	{
+		std::cout << (int)i << "/256= " << Fixed(i) / n << '\n';
+	}
+}
+
+void	test6()
+{
+	std::cout << "\nTest 6" << std::endl;
+
+	int i = 10;
+	Fixed n(10);
+
+	while (i -= 1)
+	{
+		std::cout << (int)i << "/10= " << Fixed(i) / n << '\n';
+	}
+}
+
+void	test7()
+{
+	std::cout << "\nTest 7" << std::endl;
+
+	int i = 256;
+	Fixed n(2560);
+
+	while (i--)
+	{
+		std::cout << (int)i << "/2560= " << Fixed(i) / n << '(' << Fixed(i) / n * 256 << "/256)" << '\n';
+	}
+}
+
+void	test16()
+{
+	std::cout << "\nTest 16" << std::endl;
+
+	int i = 257;
+	Fixed n(256);
+
+	std::cout << std::hex;
+	while (i--)
+	{
+		std::cout << (int)i << "/" << n << "= " << Fixed(i) / n << '\n';
+	}
+	std::cout << float(42) << "/" << float(10) << "= " << float(42) / float(10) << '\n';
+	std::cout << std::dec;
 }
 
 void	subjecttest00()
@@ -117,6 +188,11 @@ int main()
 	test1();
 	test2();
 	test3();
+	test4();
+	test5();
+	test6();
+	test7();
+	test16();
 	subjecttest00();
 	subjecttest01();
 	subjecttest02();

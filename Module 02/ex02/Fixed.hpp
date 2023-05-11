@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:31:30 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/11 08:51:48 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:42:54 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 # define FIXED_HPP
 #include <iostream>
 
+const int	FIXED_BIT_NUM = 8;
+
 class	Fixed
 {
 	private:
 		int				value;
-		static const int bit_num = 8;
+		static const int bit_num = FIXED_BIT_NUM;
 
 	public:
 		Fixed();
