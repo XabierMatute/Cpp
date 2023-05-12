@@ -6,11 +6,12 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 18:23:16 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/11 16:31:56 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:01:57 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 #include <iostream>
 
 void	test0()
@@ -182,19 +183,80 @@ void	subjecttest02()
 	std::cout << Fixed::max( a, b ) << std::endl;
 }
 
+void	linetest(Point A, Point B, Point P)
+{
+	std::cout << "la distancia de P" << P << "a la recta A" << A << "-B" << B << " es " << P.line(A, B) << "\n";
+}
+#include "bsp.h"
+
+void	bsptest(Point A, Point B, Point C,Point P)
+{
+	if	(!bsp(A, B, C, P))
+		std::cout << "🥀el punto P " << P << " NO";
+	else
+		std::cout << "🦋el punto P " << P;
+		
+	std::cout << " pertenece al triangulo A" << A << "-B" << B << "-C" << C << "\n";
+}
+
+void	multibsptest(Point A, Point B, Point C)
+{
+	Point zero;
+	Point P(1, 1);
+	Point PP(1.01F, 1.01F);
+	Point PM(0.99F, 0.99F);
+	Point PPM(0.99F, 1);
+	Point F(-42.69F, 1999.113F);
+	Point FT(42 / 10, 42 * 10);
+	Point Felix(9.99F,10.11F);
+	Point Felix2(9.99F,100.11F);
+	Point Mikel(0,0.11F);
+	Point Mikel2(0,3.33F);
+	Point inigo(30, 35);
+	Point Amparo1(10.23F, -3.02F);
+	Point Amparo2(10, -5.33F);
+	Point Amparo3(13.76F, -5.33F);
+	bsptest(A, B, C, zero);
+	bsptest(A, B, C, P);
+	bsptest(A, B, C, PP);
+	bsptest(A, B, C, PM);
+	bsptest(A, B, C, PPM);
+	bsptest(A, B, C, F);
+	bsptest(A, B, C, FT);
+	bsptest(A, B, C, Felix);
+	bsptest(A, B, C, Felix2);
+	bsptest(A, B, C, Mikel);
+	bsptest(A, B, C, Mikel2);
+	bsptest(A, B, C, Amparo1);
+	bsptest(A, B, C, Amparo2);
+	bsptest(A, B, C, Amparo3);
+}
+
 int main()
 {
-	test0();
-	test1();
-	test2();
-	test3();
-	test4();
-	test5();
-	test6();
-	test7();
-	test16();
-	subjecttest00();
-	subjecttest01();
-	subjecttest02();
+	// test0();
+	// test1();
+	// test2();
+	// test3();
+	// test4();
+	// test5();
+	// test6();
+	// test7();
+	// test16();
+	// subjecttest00();
+	// subjecttest01();
+	// subjecttest02();	
+	// std::cout << std::hex;
+	// linetest(Point(-1,-1), Point(-1,-1), Point(2 * 1.52F,-2 * 1.52F));
+	multibsptest(Point(0,0), Point(0,0), Point(0,0));
+	multibsptest(Point(-1,-1), Point(56,0), Point(0,33.33F));
+	multibsptest(Point(0,0), Point(2,0), Point(0,2));
+	multibsptest(Point(0,0), Point(3,0), Point(0,3));
+	multibsptest(Point(-46,100.101F), Point(46,100.101F), Point(0, -111.111F));
+	multibsptest(Point(3,6), Point(6.69F,72.9F), Point(15, 0));
+	multibsptest(Point(3,2), Point(-2, 5.75F), Point(0, 3));
+	multibsptest(Point(70, 90), Point(40, 30), Point(10, 15));
+	multibsptest(Point(70, 90), Point(40, 30), Point(10, 15));
+	multibsptest(Point(10.23F, -3.02F), Point(9, -6.88F), Point(13.36F, -6.68F));
 	return 0;
 }

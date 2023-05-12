@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:37:35 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/11 16:29:05 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/12 13:39:24 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const Fixed& to_copy) 
 {
-	std::cout << BLUE << "🛠 Copy constructor called" << RESET << std::endl;
+	// std::cout << BLUE << "🛠 Copy constructor called" << RESET << std::endl;
 	*this = to_copy;
 }
 

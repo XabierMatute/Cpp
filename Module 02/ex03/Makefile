@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/05/11 17:01:14 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/05/12 14:46:35 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ export ASCIIART
 
 NAME := BSP
 
-SRC :=	main.cpp	\
+SRC :=	main.cpp bsp.cpp	\
 
 OBJ := $(SRC:%.cpp=%.o)
 
-# HEADER := $(NAME:%=%.hpp)
+HEADER := bsp.h
 
 CLASSES := Fixed Point
 
@@ -63,7 +63,7 @@ MAGENTA = \033[0;35m
 
 all : $(NAME)
 
-$(NAME): $(CLASSES_OBJ)
+$(NAME): $(CLASSES_OBJ) $(OBJ)
 	@echo "$(GREEN)$(NAME) compiled...$(WHITE)"
 	@echo "$(MAGENTA)$$ASCIIART$(WHITE)"
 
@@ -101,7 +101,7 @@ commit:
 	git status
 
 test: all main.cpp
-	$(CXX) $(CPPFLAGS) $(SANI) main.cpp $(CLASSES_OBJ) -o $(NAME)
+	$(CXX) $(CPPFLAGS) $(SANI) $(OBJ) $(CLASSES_OBJ) -o $(NAME)
 	./$(NAME)
 
 .PHONY : all clean fclean re sani flagless normi commit test
