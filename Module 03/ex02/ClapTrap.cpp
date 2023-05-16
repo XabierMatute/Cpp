@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:01:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 12:52:04 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:06:24 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << name << " is out of combat, he can't repair itshelf!\n";
 		return;
 	}
-	if (HitPoints + amount > max_HitPoints)
-		amount = max_HitPoints - HitPoints;
-	if (HitPoints > max_HitPoints)
-		amount = 0;
 	std::cout << "ClapTrap " << name << " repair itself, getting " << amount << " hit points back!\n";
 	HitPoints += amount;
 	EnergyPoints--;
