@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:01:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 13:23:03 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:59:34 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,6 @@ void ScavTrap::attack(const std::string& target)
 		return;
 	}
 	std::cout << "ScavTrap " << name << " attacks " << target << " causing " << AtackDamage << " points of damage!\n";
-	EnergyPoints--;
-	if (EnergyPoints <= 0)
-		std::cout << "ScavTrap " << name << "'s Energy points depleted!\n";
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ScavTrap " << name << " takes " << amount << " points of damage!\n";
-	HitPoints -= amount;
-	if (HitPoints <= 0)
-		std::cout << "ScavTrap " << name << " is out of combat!\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if	(EnergyPoints <= 0)
-	{
-		std::cout << "ScavTrap " << name << " has no energy to repair itshelf!\n";
-		return;
-	}
-	if	(HitPoints <= 0)
-	{
-		std::cout << "ScavTrap " << name << " is out of combat, he can't repair itshelf!\n";
-		return;
-	}
-	if (HitPoints + amount > max_HitPoints)
-		amount = max_HitPoints - HitPoints;
-	std::cout << "ScavTrap " << name << " repair itself, getting " << amount << " hit points back!\n";
-	HitPoints += amount;
 	EnergyPoints--;
 	if (EnergyPoints <= 0)
 		std::cout << "ScavTrap " << name << "'s Energy points depleted!\n";

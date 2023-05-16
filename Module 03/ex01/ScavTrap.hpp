@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:00:13 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 13:18:45 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:59:22 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 class	ScavTrap : public ClapTrap
 {
 	private:
-		// std::string	name;
-		// int			HitPoints;
-		// int			EnergyPoints;
-		// int			AtackDamage;
-
 		static const	int	max_HitPoints = 100;
 		static const	int	init_EnergyPoints = 50;
 		static const	int	init_AtackDamage = 20;
@@ -39,8 +34,6 @@ class	ScavTrap : public ClapTrap
 		ScavTrap& operator=(const ScavTrap& to_asign);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 
 		void guardGate();
 		
