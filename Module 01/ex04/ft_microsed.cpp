@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:02:43 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/04 20:08:58 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:21:54 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,17 @@ int	ft_replace(std::ifstream &file, std::ofstream &newFile, std::string &s1, std
 
 	while (file.read(buff, s1.size()))
 	{
-		buff[s1.size()] = '\0';
-		if (s1 == buff)
+		buff[file.gcount()] = '\0';
+		if (buff == s1)
 			newFile << s2;
-		else
+		else if (!file.eof())
 		{
 			newFile << buff[0];
 			file.seekg(- s1.size() + file.tellg() + 1);
 		}
 	}
+	buff[file.gcount()] = '\0';
+	newFile << buff;
 	delete[](buff);
 	return 0;
 }
