@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:00:13 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 13:35:34 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:01:59 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ class	FlagTrap : public ClapTrap
 		FlagTrap& operator=(const FlagTrap& to_asign);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 
 		void highFivesGuys(void);
 		

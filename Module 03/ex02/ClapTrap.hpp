@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:00:13 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 11:56:42 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:01:53 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,5 @@ class	ClapTrap
 		void beRepaired(unsigned int amount);
 		
 };
-
-// std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

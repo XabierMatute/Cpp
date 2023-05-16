@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:01:02 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 13:45:08 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:02:11 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,6 @@ void FlagTrap::attack(const std::string& target)
 		return;
 	}
 	std::cout << "FlagTrap " << name << " attacks " << target << " causing " << AtackDamage << " points of damage!\n";
-	EnergyPoints--;
-	if (EnergyPoints <= 0)
-		std::cout << "FlagTrap " << name << "'s Energy points depleted!\n";
-}
-
-void FlagTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "FlagTrap " << name << " takes " << amount << " points of damage!\n";
-	HitPoints -= amount;
-	if (HitPoints <= 0)
-		std::cout << "FlagTrap " << name << " is out of combat!\n";
-}
-
-void FlagTrap::beRepaired(unsigned int amount)
-{
-	if	(EnergyPoints <= 0)
-	{
-		std::cout << "FlagTrap " << name << " has no energy to repair itshelf!\n";
-		return;
-	}
-	if	(HitPoints <= 0)
-	{
-		std::cout << "FlagTrap " << name << " is out of combat, he can't repair itshelf!\n";
-		return;
-	}
-	if (HitPoints + amount > max_HitPoints)
-		amount = max_HitPoints - HitPoints;
-	std::cout << "FlagTrap " << name << " repair itself, getting " << amount << " hit points back!\n";
-	HitPoints += amount;
 	EnergyPoints--;
 	if (EnergyPoints <= 0)
 		std::cout << "FlagTrap " << name << "'s Energy points depleted!\n";

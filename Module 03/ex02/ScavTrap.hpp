@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 11:00:13 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/16 13:18:45 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:02:37 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,9 @@ class	ScavTrap : public ClapTrap
 		ScavTrap& operator=(const ScavTrap& to_asign);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 
 		void guardGate();
 		
 };
-
-// std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
