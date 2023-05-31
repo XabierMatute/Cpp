@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/05/31 18:16:55 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/05/31 18:39:44 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,15 @@ OBJ := $(SRC:%.cpp=%.o)
 
 # HEADER := $(NAME:%=%.hpp)
 
+INTERFACES := ICharacter IMateriaSource
+
 CLASSES := AMateria Character Ice Cure Inventory MateriaSource
 
 CLASSES_SRC := $(CLASSES:%=%.cpp)
 
 CLASSES_OBJ := $(CLASSES:%=%.o)
 
-CLASSES_HEADER := $(CLASSES:%=%.hpp)
+CLASSES_HEADER := $(CLASSES:%=%.hpp) $(INTERFACES:%=%.hpp)
 
 CXX		:=	c++
 
