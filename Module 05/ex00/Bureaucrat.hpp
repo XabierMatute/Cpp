@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 13:36:00 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/02 15:10:07 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:11:27 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ class	Bureaucrat
 	protected:
 		const std::string	name;
 		unsigned char		grade;
+
+		static const unsigned char	highestGrade = 1;
+		static const unsigned char	lowestGrade = 150;
 
 	private:
 		Bureaucrat();

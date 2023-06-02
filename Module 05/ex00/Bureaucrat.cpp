@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 13:41:17 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/02 15:11:04 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:10:32 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 
 void	Bureaucrat::checkGradeExceptions(int grade)
 {
-	if (grade < 1)
+	if (grade < highestGrade)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (grade > lowestGrade)
 		throw GradeTooLowException();
 }
 
