@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/06/02 16:06:48 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/06/02 16:07:15 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,7 @@ flagless:
 	$(MAKE) CPPFLAGS='' all
 
 commit:
-	git add $(SRC) $(CLASSES_SRC) $(CLASSES_HEADER) $(HEADER) ./Makefile
+	git add $(SRC) $(CLASSES_SRC) $(CLASSES_HEADER) $(HEADER) $(HEADERS)  ./Makefile
 	git commit -m "commit general de $(NAME)"
 	git push
 	git status
