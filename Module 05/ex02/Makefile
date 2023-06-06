@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/06/05 20:40:44 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/06/06 20:53:57 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ HEADERS := colors.h
 
 # INTERFACES := 
 
-CLASSES := Bureaucrat AForm ShrubberyCreationForm
+CLASSES := Bureaucrat AForm ShrubberyCreationForm PresidentialPardonForm RobotomyRequestForm
 
 CLASSES_SRC := $(CLASSES:%=%.cpp)
 

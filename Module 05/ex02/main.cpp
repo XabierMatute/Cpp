@@ -6,12 +6,14 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:03:49 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/05 21:28:05 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/06 21:55:28 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
 #include <iostream>
 #include "colors.h"
@@ -35,11 +37,10 @@ void	tc_incrementgrade(Bureaucrat &evaluated)
 	{
 		evaluated.incrementGrade();
 		std::cout << evaluated << " ha subido de rango" << '\n';
-
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << evaluated << " no puede terner aun mas rango" << '\n';
+		std::cerr << evaluated << " no puede tener aun mas rango" << '\n';
 	}
 }
 
@@ -143,7 +144,27 @@ void	FormTest1()
 	burocrata.executeForm(formularbol);
 	burocrata.signAForm(formularbol);
 	burocrata.executeForm(formularbol);
+	
+	PresidentialPardonForm	formuperdon("Bulle");
 
+	burocrata.executeForm(formuperdon);
+	burocrata.signAForm(formuperdon);
+	burocrata.executeForm(formuperdon);
+
+	Bureaucrat sus("Bulle", 20);
+
+	sus.executeForm(formuperdon);
+	sus.signAForm(formuperdon);
+	sus.executeForm(formuperdon);
+	
+	Bureaucrat presi("Zaphod Beeblebrox", 1);
+
+	presi.executeForm(formuperdon);
+
+	RobotomyRequestForm	robotomia("uxue");
+
+	burocrata.signAForm(robotomia);
+	burocrata.executeForm(robotomia);
 }
 
 int main()
