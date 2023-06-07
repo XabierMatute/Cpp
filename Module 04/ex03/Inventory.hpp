@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:01:16 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:10:57 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:30:01 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Inventory
 {
 	private:
 		static const int	slots = 4;
-	
+
 	public:
 		AMateria	*materias[slots];
 

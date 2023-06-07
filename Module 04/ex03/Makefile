@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/05/31 18:39:44 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/06/01 13:47:53 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,5 +132,7 @@ commit:
 
 test: all
 	./$(NAME)
+	./$(NAME) test | grep Destructor | wc -l
+	./$(NAME) test | grep constructor | wc -l
 
 .PHONY : all clean fclean re sani flagless normi commit test

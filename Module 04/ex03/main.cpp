@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 19:06:04 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/05/31 18:31:32 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/07 12:43:43 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,30 +86,62 @@ void	subjectTest()
 	delete src;
 }
 
-// void	subjectTest()
-// {
-// 	std::cout << "\nsubjectTest" << std::endl;
-// 	IMateriaSource* src = new MateriaSource();
-// 	src->learnMateria(new Ice());
-// 	src->learnMateria(new Cure());
-// 	ICharacter* me = new Character("me");
-// 	AMateria* tmp;
-// 	tmp = src->createMateria("ice");
+void	PruebadeHieloTest()
+{
+	std::cout << "\nPrueba de hielo" << std::endl;
+	IMateriaSource* icesrc = new MateriaSource();
+	icesrc->learnMateria(new Ice());
+	icesrc->learnMateria(new Ice());
+	icesrc->learnMateria(icesrc->createMateria("ice"));
+	icesrc->learnMateria(new Ice());
+	// icesrc->learnMateria(new Ice());//a partir de aqui leaks si se hace asi
+	
+	if (!icesrc->createMateria("cure"))
+	{
+		std::cout << "De donde no hay no se puede sacar" << std::endl;
+	}
+	AMateria* tmp;
+	tmp = icesrc->createMateria("ice");
+	if (tmp)
+	{
+		std::cout << "«El hielo no tiene nada de bonito. El hielo no produce nada. Pero tenemos esto en la mente de que tenemos que enfriar todo». Don Young." << std::endl;
+		delete tmp;
+	}
+	if (!icesrc->createMateria("materiainexistente"))
+	{
+		std::cout << "“Sea la inexistencia” ― Jaime García Maffla" << std::endl;
+	}
+	delete icesrc;
+}
 
-// 	me->equip(tmp);
-// 		// me->use(0, *me);
-// 	tmp = new Cure;
-// 		// me->use(1, *me);
-// 	me->equip(tmp);
-// 		me->use(1, *me);
-
-// 	ICharacter* bob = new Character("bob");
-// 	me->use(0, *bob);
-// 	me->use(1, *bob);
-// 	delete bob;
-// 	delete me;
-// 	delete src;
-// }
+void	magicTest()
+{
+	std::cout << "\nmagic test" << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	
+	ICharacter* mage = new Character("Montblanc");
+	ICharacter* fool = new Character("Nolan");
+	mage->use(1, *mage);
+	mage->equip(src->createMateria("ice"));
+	mage->use(0, *fool);
+	AMateria* tirita = src->createMateria("cure");
+	fool->equip(tirita);
+	fool->use(0, *fool);
+	fool->unequip(0);
+	mage->equip(tirita);
+	mage->use(1, *mage);
+	mage->unequip(1);
+	delete tirita;//solo si está en el suelo (no está equipado), sino crash
+	mage->use(0, *fool);
+	fool->use(0, *fool);
+	mage->use(0, *fool);
+	fool->use(0, *fool);
+	delete mage;
+	delete fool;
+	delete src;
+}
 
 int main()
 {
@@ -119,4 +151,6 @@ int main()
 	MStest0();
 	test1();
 	subjectTest();
+	PruebadeHieloTest();
+	magicTest();
 }

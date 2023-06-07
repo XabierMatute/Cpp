@@ -75,7 +75,7 @@ Inventory& Inventory::operator=(const Inventory& to_asign)
 
 	destroy();
 	while (i--)
-		materias[i] = to_asign.materias[i];
+		materias[i] = to_asign.materias[i]->clone();
 	return(*this);
 }
 
