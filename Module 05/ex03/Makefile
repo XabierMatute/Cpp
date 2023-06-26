@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/06/26 16:16:03 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/06/26 20:41:48 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ define ASCIIART
 endef
 export ASCIIART
 
-NAME := bureaucrat
+NAME := intern
 
 SRC :=	main.cpp	\
 
