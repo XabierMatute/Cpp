@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 14:09:36 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/26 20:30:43 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:53:32 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define Intern_HPP
 
 #include "AForm.hpp"
-#include "Inventory.hpp"
 #include "AForm.hpp"
 
 #include "ShrubberyCreationForm.hpp"
