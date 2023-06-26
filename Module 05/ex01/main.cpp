@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:03:49 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/04 12:44:40 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/06/06 21:52:16 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	tc_incrementgrade(Bureaucrat &evaluated)
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << evaluated << " no puede terner aun mas rango" << '\n';
+		std::cerr << evaluated << " no puede tener aun mas rango" << '\n';
 	}
 }
 
