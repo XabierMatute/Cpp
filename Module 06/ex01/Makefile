@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/06/29 17:27:22 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/06/30 11:14:15 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC :=	main.cpp	\
 
 OBJ := $(SRC:%.cpp=%.o)
 
-# HEADER := $(NAME:%=%.hpp)
+HEADER := Data.h
 
 # INTERFACES := 
 
