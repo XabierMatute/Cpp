@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:39:08 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/29 16:58:53 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/01 10:24:36 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,9 +182,9 @@ int	ScalarConverter::convert(const std::string &to_convert)
 int	ScalarConverter::convert(const char	&c)
 {
 	display(c);
-	display((int)c);
-	display((float)c);
-	display((double)c);
+	display(static_cast<int>(c));
+	display(static_cast<float>(c));
+	display(static_cast<double>(c));
 	return (0);
 }
 
@@ -193,10 +193,10 @@ int	ScalarConverter::convert(const int	&i)
 	if (i > CHAR_MAX || i < CHAR_MIN)
 		std::cout << "char: impossible" << std::endl;
 	else
-		display((char)i);
+		display(static_cast<char>(i));
 	display(i);
-	display((float)i);
-	display((double)i);
+	display(static_cast<float>(i));
+	display(static_cast<double>(i));
 	return (0);
 }
 
@@ -205,13 +205,13 @@ int	ScalarConverter::convert(const float &f)
 	if (isnan(f) || f > CHAR_MAX || f < CHAR_MIN)
 		std::cout << "char: impossible" << std::endl;
 	else
-		display((char)f);
+		display(static_cast<char>(f));
 	if (isnan(f) || f > INT_MAX || f < INT_MIN)
 		std::cout << "int: impossible" << std::endl;
 	else
-		display((int)f);
+		display(static_cast<int>(f));
 	display(f);
-	display((double)f);
+	display(static_cast<double>(f));
 	return (0);
 }
 
@@ -220,17 +220,17 @@ int	ScalarConverter::convert(const double &d)
 	if (isnan(d) || d > CHAR_MAX || d < CHAR_MIN)
 		std::cout << "char: impossible" << std::endl;
 	else
-		display((char)d);
+		display(static_cast<char>(d));
 	if (isnan(d) || d > INT_MAX || d < INT_MIN)
 		std::cout << "int: impossible" << std::endl;
 	else
-		display((int)d);
+		display(static_cast<int>(d));
 	if ((!isnan(d) && !isinf(d)) &&
 		(d > FLT_MAX ||
 		d < -FLT_MAX))
 		std::cout << "float: impossible" << std::endl;
 	else
-		display((float)d);
+		display(static_cast<float>(d));
 	display(d);
 	return (0);	
 }
