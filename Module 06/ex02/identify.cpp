@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 10:42:30 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/30 11:09:24 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/01 10:46:08 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,21 @@ static char	ABC(Base& p)
 		return ('A');
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 	try
 	{
 		(void)dynamic_cast<B &>(p);
 		return ('B');
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 	try
 	{
 		(void)dynamic_cast<C &>(p);
 		return ('C');
 	}
 	catch(const std::exception& e)
-	{
-	}
+	{}
 	return ('?');
 }
 

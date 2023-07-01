@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 10:30:54 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/06/30 11:11:10 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/01 10:52:17 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,25 @@ int main()
 	Base	*b = new B;
 	Base	*c = new C;
 	Base	*nop = new Base;
+
+	std::cout << "testing void identify(Base* p);" << std::endl;
+	std::cout << "ABC" << std::endl;
 	identify(a);
 	identify(b);
 	identify(c);
+	std::cout << "Base" << std::endl;
 	identify(nop);
+	std::cout << "Base * generate(void);" << std::endl;
 	identify(rando);
 	identify(rando);
+	std::cout << "testing void identify(Base& p);" << std::endl;
+	std::cout << "ABC" << std::endl;
+	identify(*a);
+	identify(*b);
+	identify(*c);
+	std::cout << "Base" << std::endl;
+	identify(*nop);
+	std::cout << "Base * generate(void);" << std::endl;
 	identify(*rando);
 	identify(*rando);
 	delete (a);
