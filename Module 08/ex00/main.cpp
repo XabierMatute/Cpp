@@ -6,107 +6,82 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 20:36:21 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/07/13 12:41:02 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:13:40 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <list>
 #include <deque>
+#include <queue>
 #include <algorithm>
 #include "easyfind.hpp"
 
 template	<typename T>// Assuming T is a container of integers
-void test(T container)
+void testeasyfind(T container, int to_find)
 {
-	try
-	{
-		int result = easyfind(container, 42);
-		std::cout << "Element found: " << result << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+	std::cout << "\nBuscando " << to_find << std::endl;
+	typename T::iterator result = easyfind(container, to_find);
+
+	if (result == container.end())
+		std::cout << "No ";
+	else
+		std::cout << *result;
+	std::cout << " encontrado" << std::endl;			
 }
 
-template	<typename T>// Assuming T is a container of integers
-void test(T container, int to_find)
+template	<typename T>// Assuming T is a container of printables
+void	printc(T container)
 {
-	try
+    std::cout << "Elements in the container: " << std::endl;
+	typename T::iterator	it = container.begin();
+	while (it != container.end())
 	{
-		int result = easyfind(container, to_find);
-		std::cout << "Element found: " << result << " seaching for " << to_find << std::endl;
+ 	   std::cout << *it << std::endl;
+		it++;
 	}
-	catch (const std::exception& e)
-	{
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-}
 
-std::ostream& operator<<(std::ostream& os, const std::list<int>& myList) {
-    os << "Elements in the list: ";
-    for (std::list<int>::const_iterator it = myList.begin(); it != myList.end(); ++it) {
-        os << *it << " ";
-    }
-    return os;
 }
-
 
 int main()
 {
-	// std::vector<int> v;
-	// test(v);
-	// v.push_back(1);
-	// test(v);
-	// v.push_back(42);
-	// test(v);
-	// v.push_back(69);
-	// test(v);
+	std::vector<int> v;
+	printc(v);
+	v.push_back(1);
+	v.push_back(42);
+	v.push_back(69);
+	printc(v);
+	testeasyfind(v, 0);
+	testeasyfind(v, 42);
+	testeasyfind(v, 100);
 
-	// std::deque<int> d;
-	// test(d);
-	// d.push_back(1);
-	// test(d);
-	// d.push_back(42);
-	// test(d);
-	// d.push_back(69);
-	// test(d);
+	std::deque<int> d;
+	printc(d);
+	
+	d.push_back(1);
+	d.push_back(42);
+	d.push_back(69);
+	printc(v);
+	testeasyfind(v, 42);
+	testeasyfind(v, 69);
+	testeasyfind(v, -13);
+	*easyfind(d, 42) = -13;
+	printc(d);
+	testeasyfind(d, -13);
 
 	std::list<int> l;
-	// test(l);
-	// std::cout << l << std::endl;
 	l.push_back(1);
-	// test(l);
 	l.push_back(42);
-	std::cout << l << std::endl;
-
-	test(l);
+	l.push_back(-1);
 	l.push_back(69);
-	std::cout << l << std::endl;
-
-	test(l);
-	test(l, 1);
-	test(l, 1);
-	std::cout << l << std::endl;
-
-	test(l);
-	// int	&i = *easyfind(l, 42);
-	// i = 13;
-	test(l);
-
-	std::cout << l << std::endl;
-	// 	test(l, 69);
-	// test(l, 1);
-	// l.push_back(69);
-	// test(l);
-	// l.push_front(69);
-	// test(l);
-	// std::cout << l << std::endl;
-
-
-//	haz pruebas de usar la referencia para alterarlo
+	printc(l);
+	testeasyfind(l, 1);
+	testeasyfind(l, 0);
+	testeasyfind(l, -1);
+	l.insert(easyfind(l, -1), -2);
+	printc(l);
 
     return 0;
 }
