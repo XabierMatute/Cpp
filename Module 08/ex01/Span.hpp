@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 17:58:00 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/07/17 17:42:37 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:58:12 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class	Span
 	
 		void	addNumber(int to_add);
 		void	addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void	addNumbers(std::vector<int> to_add);
 
 	private:
 		static int	min(std::vector<int> const container);

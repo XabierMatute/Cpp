@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 17:58:05 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/07/17 17:44:21 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/17 19:10:00 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,14 @@ void	Span::addNumber(int to_add)
 
 void	Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	if (container.size() + std::distance(begin, end) >= N)
+	if (container.size() + std::distance(begin, end) - 1 >= N)
 		throw std::overflow_error("Span has not enought space");
 	container.insert(container.begin(), begin, end);
+}
+
+void	Span::addNumbers(std::vector<int> to_add)
+{
+	addNumbers(to_add.begin(), to_add.end());
 }
 
 int	Span::min(std::vector<int> const container)
@@ -64,12 +69,12 @@ int	Span::max() const
 
 std::vector<int>	Span::diffs(std::vector<int> const container)
 {
-	std::vector<int>	diff(container.size() - 1);
+	std::vector<int>	diff;
 	unsigned int i = 0;
 
 	while (i < container.size())
 	{
-		diff.push_back(std::abs(container[i + 1] - container[1]));
+		diff.push_back(std::abs(container[i + 1] - container[i]));
 		i++;
 	}
 	return diff;
