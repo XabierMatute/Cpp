@@ -6,11 +6,13 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 17:58:05 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/07/15 19:12:17 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:44:21 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <algorithm>
+#include <iterator>
 
 /*
 ** Orthodox Canonical Form
@@ -33,19 +35,52 @@ void	Span::addNumber(int to_add)
 	container.push_back(to_add);
 }
 
-int	Span::min() const
+void	Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (container.size() + std::distance(begin, end) >= N)
+		throw std::overflow_error("Span has not enought space");
+	container.insert(container.begin(), begin, end);
+}
+
+int	Span::min(std::vector<int> const container)
 {
 	return (*std::min_element(container.begin(), container.end()));
 }
 
-int	Span::max() const
+int	Span::max(std::vector<int> const container)
 {
 	return (*std::max_element(container.begin(), container.end()));
 }
 
-unsigned int Span::shortestSpan() const
+int	Span::min() const
 {
-	return 1;
+	return (min(container));
+}
+
+int	Span::max() const
+{
+	return (max(container));
+}
+
+std::vector<int>	Span::diffs(std::vector<int> const container)
+{
+	std::vector<int>	diff(container.size() - 1);
+	unsigned int i = 0;
+
+	while (i < container.size())
+	{
+		diff.push_back(std::abs(container[i + 1] - container[1]));
+		i++;
+	}
+	return diff;
+}
+
+unsigned int Span::shortestSpan()
+{
+	if (container.size() < 2)
+		return 0;
+	std::sort(container.begin(), container.end());
+	return min(diffs(container));
 }
 
 unsigned int Span::longestSpan() const
