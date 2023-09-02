@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:00:59 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/08/20 14:14:46 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/09/02 16:22:28 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 #include <map>
 #include <ctime>
 
-#define BEmap std::map<struct tm, float>
+#define BEmap std::map<time_t, double>
 
 class	BitcoinExchange
 {
 	private:
 		BEmap	database;
 		static  const std::string		databaseHeader;
+		static  const std::string		consultHeader;
 
 	private:
-		static bool	validDate(const std::string date);
-		static bool	validRate(const std::string date);
-
-		static void		checkDatabase(const std::string &path);
-		static BEmap	initDatabase(const std::string &path);
-		static BEmap	parseDatabase(const std::string &path);
+		BEmap	parseDatabase(const std::string &path);
+		void	parseLine(const char *line);
+		void	consultLine(const char *line) const;
+		void	printConsult(std::tm &date, double const &value) const;
+		double	getRate(time_t date) const;
 
 	private:
 		BitcoinExchange();
@@ -42,8 +42,9 @@ class	BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange& to_asign);
 		~BitcoinExchange();
 
+		void	consult(const std::string &path) const;
 };
 
-const std::string BitcoinExchange::databaseHeader = "date,exchange_rate";
+
 
 #endif

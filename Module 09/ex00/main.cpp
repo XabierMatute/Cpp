@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:01:08 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/08/30 18:17:16 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/09/01 17:29:27 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int consult(char const *path)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Error: no se ha podido realizar la consulta\n" e.what() << '\n';
-		return (EXIT_FAILURE));
+		std::cerr << "Error: no se ha podido realizar la consulta\n" << e.what() << '\n';
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
