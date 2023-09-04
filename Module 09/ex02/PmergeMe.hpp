@@ -6,36 +6,39 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:02:31 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/09/03 20:04:51 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:11:49 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PmergeMe_HPP
 # define PmergeMe_HPP
 
-#include <stack>
+#include <deque>
+#include <list>
 
-typedef std::stack<int> PmergeMestack;
+typedef std::list<int> Ilist;
+typedef std::deque<int> Ideque;
 
 class	PmergeMe
 {
 	private:
-		PmergeMestack	stack;
+		Ilist	list;
+		Ideque	deque;
 
 	private:
-		static bool	issing(const char c);
-		int		extract();
-		
-		void	process(const char c);
-		int		operate(const char c);
+		int		sortList(const char **input);
+		int		sortDeque(const char **input);
 
+		void	MergeInsertSortList();
+
+		
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& to_copy);
 		PmergeMe& operator=(const PmergeMe& to_asign);
 		~PmergeMe();
 
-		int		calculate(const char *input);
+		int		sort(const char **input, int size);
 };
 
 #endif
