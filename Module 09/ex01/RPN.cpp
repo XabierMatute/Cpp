@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:01:26 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/09/03 18:58:10 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:42:50 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	RPN::operate(const char c)
 		case '*':
 			return(a * b);
 		case '/':
+			if (b == 0)
+				throw (std::runtime_error("no puedo dividir entre 0"));
 			return(a / b);
 		default:
 			throw (std::runtime_error("❗️Error inesperado"));
