@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:00:41 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/09/02 19:37:56 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:41:44 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& to_asign)
 BitcoinExchange::BitcoinExchange(const std::string &path) : database()
 {
 	parseDatabase(path);
-	// BEmap::const_iterator	i = database.begin();
-	// while (i !=  database.end())
-	// {
-	// 	std::cout << i->first << " " << i->second << std::endl;
-	// 	i++;
-	// }
 }
 
 void BitcoinExchange::parseLine(const char *line)
@@ -68,49 +62,17 @@ void BitcoinExchange::parseLine(const char *line)
 	if (rate < 0)
 		throw (std::runtime_error("Los ratios deben ser positivos"));
 	database.insert(std::make_pair(mktime(&date), rate));
-	// std::cout << "metemos " << date.tm_mday << mktime(&date) << " " << rate << std::endl;
-	// 		std::cout << date.tm_year + 1900 << '-' << date.tm_mon + 1 << '-' << date.tm_mday  << " => "<< std::endl;
-
 }
 
 double	BitcoinExchange::getRate(time_t date) const
-{
-			// std::cout << "date " << date << std::endl;
-
-	// BEmap::const_iterator	i = database.begin();
-	// while (i !=  database.end())
-	// {
-	// 	std::cout << i->first << " " << i->second << std::endl;
-	// 	i++;
-	// }
-	
+{	
 	BEmap::const_iterator	it = database.find(date);
 
-	// databse[date];
-	
-	// if (database.count(date))
-	// 	return(database[date]);
-
 	if (it != database.end())
-	{
-		// std::cout << "find:" << it->first << " " << it->second << std::endl;
 		return(it->second);
-	}
 	it = database.lower_bound(date);
-	// if (it == database.end())
-	// {
-	// 	std::cout << "end" << std::endl;
-	// 	return(-1);
-	// }
-		if (it == database.begin())
-	{
-		std::cout << "begin" << std::endl;
+	if (it == database.begin())
 		return(-1);
-	}
-	// if (it == database.end() || it == database.begin())
-	// 	return(-1);
-	// std::cout << "lower_bound:" << it->first << " " << it->second << std::endl;
-
 	it--;
 	return(it->second);
 }
@@ -189,6 +151,7 @@ void BitcoinExchange::consult(const std::string &path) const
 {
 	std::ifstream file(path.c_str());
 
+	std::cout << std::endl;
 	if (database.empty())
 		throw(std::runtime_error("database is empty"));
 	if (!file.is_open())
@@ -199,6 +162,9 @@ void BitcoinExchange::consult(const std::string &path) const
 		throw (std::runtime_error("El archivo " + path + " tiene como primera linea \"" + line + "\" en vez de \"" + consultHeader + "\"."));
 	while (std::getline(file, line))
 	{
-		consultLine(line.c_str());
+		if	(line.empty())
+			std::cout << std::endl;
+		else
+			consultLine(line.c_str());
 	}
 }
