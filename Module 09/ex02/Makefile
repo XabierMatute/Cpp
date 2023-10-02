@@ -6,7 +6,7 @@
 #    By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 14:37:14 by xmatute-          #+#    #+#              #
-#    Updated: 2023/09/03 20:05:05 by xmatute-         ###   ########.fr        #
+#    Updated: 2023/10/02 13:28:23 by xmatute-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ commit:
 	git status
 
 test: all
-	./$(NAME)
+	./$(NAME)  3 5 9 7 4
 
 
 .PHONY : all clean fclean re sani flagless normi commit test

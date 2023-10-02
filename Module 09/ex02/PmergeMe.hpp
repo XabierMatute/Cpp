@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:02:31 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/09/04 18:11:49 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:27:46 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <deque>
 #include <list>
 
-typedef std::list<int> Ilist;
-typedef std::deque<int> Ideque;
+typedef std::list<unsigned int> Ilist;
+typedef std::deque<unsigned int> Ideque;
 
 class	PmergeMe
 {
@@ -30,7 +30,9 @@ class	PmergeMe
 		int		sortDeque(const char **input);
 
 		void	MergeInsertSortList();
+		void	MergeInsertSortDeque();
 
+		void	printC();
 		
 	public:
 		PmergeMe();
