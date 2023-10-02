@@ -6,7 +6,7 @@
 /*   By: xmatute- <xmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:02:23 by xmatute-          #+#    #+#             */
-/*   Updated: 2023/10/02 13:29:37 by xmatute-         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:08:09 by xmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string>
 #include <ctime>
 #include <iostream>
+#include <cstdlib>
 
 /*
 ** Orthodox Canonical Form
@@ -32,26 +33,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& to_asign)
 	deque = to_asign.deque;
 	 return(*this);
 }
-
-// void	listprint(Ilist	list)
-// {
-// 	Ilist::iterator		l = list.begin();
-// 	while (l != list.end())
-// 	{
-// 		std::cout << *l << ' ';
-// 		l++;
-// 	}
-// }
-
-// void	dequeprint(Ideque	list)
-// {
-// 	Ideque::iterator		l = list.begin();
-// 	while (l != list.end())
-// 	{
-// 		std::cout << *l << ' ';
-// 		l++;
-// 	}
-// }
 
 Ilist	half(Ilist &list)
 {
@@ -122,11 +103,14 @@ void	PmergeMe::MergeInsertSortDeque()
 
 int		PmergeMe::sortList(const char **input)
 {
+	char	*error = NULL;
 	while (*input)
 	{
-		if (atoi(*input) < 0)
-			throw (std::runtime_error("hay algun numero negativo"));
-		list.push_back(atoi(*input));
+		if (strchr(*input, '-'))
+			throw (std::runtime_error("numero negativo"));
+		list.push_back(std::strtoul(*input, &error, 0));
+		if (*error)
+			throw (std::runtime_error("input invalido"));
 		input++;
 	}
 	MergeInsertSortList();
@@ -135,11 +119,15 @@ int		PmergeMe::sortList(const char **input)
 
 int		PmergeMe::sortDeque(const char **input)
 {
+	char	*error = NULL;
 	while (*input)
 	{
-		if (atoi(*input) < 0)
-			throw (std::runtime_error("hay algun numero negativo"));
-		deque.push_back(atoi(*input));
+		if (strchr(*input, '-'))
+			throw (std::runtime_error("numero negativo"));
+		deque.push_back(std::strtoul(*input, &error, 0));
+		std::cout << error;
+		if (*error)
+			throw (std::runtime_error("input invalido"));
 		input++;
 	}
 	MergeInsertSortDeque();
@@ -189,7 +177,7 @@ int		PmergeMe::sort(const char **input, int size)
 	std::cout << "Before: ";
 	while (*input)
 	{
-		std::cout << *input << ' ';
+		std::cout << atoi(*input) << ' ';
 		input++;
 	}
 	std::cout << std::endl;
